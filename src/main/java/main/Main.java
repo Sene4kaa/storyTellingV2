@@ -1,6 +1,11 @@
-import people.*;
-import explanations.*;
-import storyTell.*;
+package main.java.main;
+
+import main.java.explanations.Condition;
+import main.java.people.Author;
+import main.java.people.Mate;
+import main.java.people.Robber;
+import main.java.storytell.Narrator;
+import main.java.storytell.StoryTell;
 
 
 public class Main{
@@ -9,29 +14,30 @@ public class Main{
 
         Narrator narrator = new Narrator("Senya", 2003);
 
-        Author author = new Author("Oxxxymiron_", "Miron", 35);
+        Author author = new Author("Oxxxy", "Miron");
 
-        Mate mate1 = new Mate("Slava", "KPSS", 30);
-        Mate mate2 = new Mate("Sonya", "Marmeladova", 32);
-        Mate mate3 = new Mate("Gnoyniy", "", 29);
+        Mate mate1 = new Mate("Slava", "KPSS");
+        Mate mate2 = new Mate("Sonya", "Marmeladova");
+        Mate mate3 = new Mate("Gnoyniy", "");
 
-        Robber robber = new Robber("Yuriy", "Hovanskiy", 47);
+        Robber robber = new Robber("Yuriy", "Hovanskiy");
+
+        System.out.println(narrator.startStory());
 
         try {
-            System.out.println(narrator.startStory());
 
-            StoryTell.performAction(author, Condition.SAYING, null, 1000);
-            StoryTell.performAction(
+            StoryTell.act(author, Condition.SAYING, null, 1000);
+            StoryTell.act(
                     author,
                     null,
                     "Слушайте, сударь, я попытаюсь выручить вас, но прежде я вам ставлю два условия...",
                     1000
             );
-            StoryTell.performAction(author, Condition.KEEPING_SILENT, null, 1000);
-            StoryTell.performAction(author, Condition.IMPATIENT, null, 1000);
+            StoryTell.act(author, Condition.KEEPING_SILENT, null, 1000);
+            StoryTell.act(author, Condition.IMPATIENT, null, 1000);
 
-            StoryTell.performAction(mate1, Condition.SAYING, null, 1000);
-            StoryTell.performAction(
+            StoryTell.act(mate1, Condition.SAYING, null, 1000);
+            StoryTell.act(
                     mate1,
                     null,
                     String.format("Я весь в вашей власти, распоряжайтесь мною по своему усмотрению, - " +
@@ -40,13 +46,13 @@ public class Main{
                             "умру за вас", mate1.getItems(), robber.getName() + robber.getSurname()),
                     1000
             );
-            StoryTell.performAction(mate1, Condition.KEEPING_SILENT, null, 1000);
+            StoryTell.act(mate1, Condition.KEEPING_SILENT, null, 1000);
 
-            StoryTell.performAction(mate2, Condition.AGREE, null, 1000);
-            StoryTell.performAction(mate3, Condition.AGREE, null, 1000);
+            StoryTell.act(mate2, Condition.AGREE, null, 1000);
+            StoryTell.act(mate3, Condition.AGREE, null, 1000);
 
-            StoryTell.performAction(author, Condition.SAYING, null, 1000);
-            StoryTell.performAction(
+            StoryTell.act(author, Condition.SAYING, null, 1000);
+            StoryTell.act(
                     author,
                     null,
                     String.format(
@@ -60,7 +66,7 @@ public class Main{
                             mate1.getItems()),
                     1000
             );
-            StoryTell.performAction(author, Condition.KEEPING_SILENT, null, 1000);
+            StoryTell.act(author, Condition.KEEPING_SILENT, null, 1000);
 
             author.getItems();
             robber.getItems();

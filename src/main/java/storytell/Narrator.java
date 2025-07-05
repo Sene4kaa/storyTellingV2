@@ -1,4 +1,4 @@
-package storyTell;
+package main.java.storytell;
 
 public record Narrator(String name, int year) {
 

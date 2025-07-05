@@ -1,25 +1,21 @@
-package people;
+package main.java.people;
 
-import java.util.EnumSet;
 import java.util.Random;
-import explanations.*;
-import exceptions.NameException;
+import main.java.exceptions.NameException;
+import main.java.explanations.Condition;
+import main.java.explanations.Items;
 
-abstract public class Human{
+public abstract class Human{
 
     protected Condition condition;
     protected Items items;
-    private String name;
-    private String surname;
-    private final int age;
+    private final String name;
+    private final String surname;
 
-    public Human(String name, String surname, int age) throws NameException{
+    protected Human(String name, String surname) throws NameException{
 
-        // if (name.length() > 10 || name.length() < 2) throw new NameException("Ошибка", name);
-        // validate();
         this.name = name;
         this.surname = surname;
-        this.age = age;
 
         Items[] values = Items.values();
         Random random = new Random();
@@ -32,14 +28,6 @@ abstract public class Human{
         System.out.println(n);
     }
 
-    public void setName(String name){
-        this.name = name;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
     public String getName() {
         return name;
     }
@@ -48,19 +36,33 @@ abstract public class Human{
         return surname;
     }
 
-    public int getAge() {
-        return age;
-    }
-
     public abstract void setCondition(Condition c);
 
     public String getItems(){
-        return this.items.getDescription();
+        return items.getDescription();
     }
 
     protected void validate() throws NameException {
 
         if (name.length() > 10 ) { throw new NameException("Слишком длинное имя", name); }
         else if (name.length() < 3) { throw new NameException("Слишком короткое имя", name); }
+    }
+
+    @Override
+    public String toString(){
+
+        return getClass().getName() + ", " + name + " " + surname;
+    }
+
+    @Override
+    public int hashCode(){
+
+        return name.hashCode() + surname.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object object){
+
+        return object instanceof Human;
     }
 }

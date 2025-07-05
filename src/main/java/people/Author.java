@@ -1,14 +1,12 @@
-package people;
+package main.java.people;
 
-import java.util.Random;
-import explanations.Condition;
-import explanations.Items;
+import main.java.explanations.Condition;
 
 public class Author extends Human{
 
-    public Author(String name, String surname, int age) {
+    public Author(String name, String surname) {
 
-        super(name, surname, age);
+        super(name, surname);
         validate();
     }
 
@@ -17,23 +15,23 @@ public class Author extends Human{
         this.condition = c;
 
         switch (this.condition) {
-            case Condition.SAYING: {
+            case SAYING: {
                 System.out.printf("%s %s сказал:%n", this.getName(), this.getSurname());
                 break;
             }
-            case Condition.KEEPING_SILENT: {
+            case KEEPING_SILENT: {
                 System.out.printf("%s %s замолчал.%n", this.getName(), this.getSurname());
                 break;
             }
-            case Condition.WONDERING: {
+            case WONDERING: {
                 System.out.printf("%s %s удивился.%n", this.getName(), this.getSurname());
                 break;
             }
-            case Condition.IMPATIENT: {
+            case IMPATIENT: {
                 System.out.printf("%s %s разозлился.%n", this.getName(), this.getSurname());
                 break;
             }
-            case Condition.AGREE: {
+            case AGREE: {
                 System.out.printf("%s %s согласился.%n", this.getName(), this.getSurname());
                 break;
             }

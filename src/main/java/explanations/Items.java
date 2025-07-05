@@ -1,4 +1,4 @@
-package explanations;
+package main.java.explanations;
 
 public enum Items {
 

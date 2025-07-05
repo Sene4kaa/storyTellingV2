@@ -1,4 +1,4 @@
-package exceptions;
+package main.java.exceptions;
 
 public class NameException extends RuntimeException{
 
@@ -13,6 +13,6 @@ public class NameException extends RuntimeException{
     @Override
     public String getMessage(){
 
-        return this.name + ": не то имя ты выбрал братишка - "; //+ this.getMessage();
+        return this.name + ": не то имя ты выбрал братишка - ";
     }
 }
